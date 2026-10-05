@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Hollowbourn</title>
+    <script type="importmap"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Cinzel+Decorative:wght@700;900&family=MedievalSharp&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&family=IM+Fell+English+SC&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Hollowbourn.Web.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <nav class="main-nav" aria-label="Main navigation">
+        <div class="nav-inner">
+            <a class="nav-logo" asp-area="" asp-page="/Index">
+                <span>Hollowbourn</span>
+            </a>
+            <ul class="nav-links">
+                <li><a asp-area="" asp-page="/Index">Home</a></li>
+                <li><a asp-area="" asp-page="/Pantheon">Pantheon</a></li>
+                <li><a asp-area="" asp-page="/Index" asp-fragment="download">Download</a></li>
+                <li><a asp-area="" asp-page="/Privacy">Privacy</a></li>
+            </ul>
+            <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <main role="main">
+        @RenderBody()
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <p class="footer-colophon"><strong>Hollowbourn</strong></p>
+            <div class="footer-links">
+                <a asp-area="" asp-page="/Index">Home</a>
+                <span class="footer-sep">&bull;</span>
+                <a asp-area="" asp-page="/Pantheon">Pantheon</a>
+                <span class="footer-sep">&bull;</span>
+                <a asp-area="" asp-page="/Privacy">Privacy</a>
+            </div>
+            <p class="footer-copy">&copy; 2026 Hollowbourn. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
+

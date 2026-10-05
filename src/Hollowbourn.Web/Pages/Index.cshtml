@@ -1,0 +1,82 @@
+@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home";
+}
+
+<header class="hero">
+    <div class="hero-content">
+        <p class="hero-subtitle">Hear the Call of the Hollow</p>
+        <h1 class="hero-title shimmer-text">Hollowbourn</h1>
+        <p class="hero-edition">A 2D MMORPG</p>
+        <p class="hero-desc">
+            Beyond the threshold of Aelunis lies a realm watched by six gods, claimed by three
+            rival powers, and haunted by a mystery no scholar has named. Cross over. Choose your
+            allegiance. Learn what waits for those marked by the Hollow.
+        </p>
+        <div class="hero-buttons">
+            <a href="#download" class="btn btn-primary">Claim the Client</a>
+            <a href="#about" class="btn btn-secondary">Read the Tome</a>
+        </div>
+    </div>
+</header>
+
+<section id="about" class="section section-dark">
+    <div class="section-inner section-narrow">
+        <p class="section-label">The Premise</p>
+        <h2 class="section-title">What Is Hollowbourn?</h2>
+        <div class="ornament-divider" aria-hidden="true"></div>
+        <p>
+            Hollowbourn is a 2D MMORPG built around the <strong>Hollow-touched</strong>: souls
+            marked in the instant they crossed out of Aelunis and into the mortal realm. Where an
+            ordinary life would end, theirs does not. Something pulls them into the Hollow instead,
+            a realm caught between what is and what comes after, and from there, if they are strong
+            enough, they return.
+        </p>
+        <p>
+            Six gods watch this world. Three powers (the Crown, the Rival, and the Discord) divide
+            its towns and its loyalties. And beneath all of it waits a seventh name no one living
+            can speak, because no one living knows it.
+        </p>
+        <div class="section-cta">
+            <a asp-page="/Pantheon" class="btn btn-secondary">Meet the Pantheon</a>
+        </div>
+    </div>
+</section>
+
+<section class="section section-dark">
+    <div class="section-inner">
+        <p class="section-label">The Realm</p>
+        <h2 class="section-title">A Kingdom Divided</h2>
+        <div class="ornament-divider" aria-hidden="true"></div>
+        <div class="feature-grid">
+            <div class="feature-card reveal-up">
+                <h3>Calren</h3>
+                <p>Seat of the Crown. Proud and ceremonial, it faces the sea as though daring it to approach.</p>
+            </div>
+            <div class="feature-card reveal-up">
+                <h3>Grivastel</h3>
+                <p>Home of the Rival. Hard iron, harder grudges, and a debt the Crown has never settled.</p>
+            </div>
+            <div class="feature-card reveal-up">
+                <h3>Kelgrim</h3>
+                <p>Carved from the bones of the Kraghold. The Discord's stronghold, and no friend to those above.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="download" class="section section-dark">
+    <div class="section-inner section-narrow">
+        <p class="section-label">Join the Adventure</p>
+        <h2 class="section-title">Download Hollowbourn</h2>
+        <div class="ornament-divider" aria-hidden="true"></div>
+        <p>
+            The client is not yet ready to be unsealed. Return to this page when the threshold opens.
+        </p>
+        <div class="section-cta">
+            <a href="#" class="btn btn-primary" aria-disabled="true">Sealed for Now</a>
+        </div>
+        <p class="download-note">No client is available yet. This marks where the download will appear.</p>
+    </div>
+</section>
