@@ -38,12 +38,12 @@ jobs:
         run: dotnet restore src/Hollowbourn.Web/Hollowbourn.Web.csproj
 
       - name: Build
-        run: dotnet build src/Hollowbourn.Web/Hollowbourn.Web.csproj --configuration Release --no-restore
+        run: dotnet build src/Hollowbourn.Web/Hollowbourn.Web.csproj --configuration Release --no-restore --output publish-output
 
       - name: Generate static site
-        run: dotnet run --project src/Hollowbourn.Web/Hollowbourn.Web.csproj --configuration Release --no-build --no-launch-profile -- ssg
+        run: dotnet publish-output/Hollowbourn.Web.dll ssg --contentRoot "$GITHUB_WORKSPACE/src/Hollowbourn.Web"
         env:
-          ASPNETCORE_URLS: http://localhost:5145
+          ASPNETCORE_URLS: http://127.0.0.1:5145
           ASPNETCORE_ENVIRONMENT: Production
 
       - name: Add .nojekyll
