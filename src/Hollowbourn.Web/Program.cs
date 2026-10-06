@@ -28,7 +28,7 @@ namespace Hollowbourn.Web
 
             // Only generate the static site when explicitly requested (e.g. "dotnet run -- ssg"),
             // so normal local development (F5 / dotnet run) just serves the Razor Pages app.
-            var isSsgRun = args.HasExitWhenDoneArg();
+            var isSsgRun = args.HasSsgArg();
 
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment() && !isSsgRun)
