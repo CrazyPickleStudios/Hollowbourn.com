@@ -26,15 +26,25 @@ namespace Hollowbourn.Web
 
             var app = builder.Build();
 
+            // Only generate the static site when explicitly requested (e.g. "dotnet run -- ssg"),
+            // so normal local development (F5 / dotnet run) just serves the Razor Pages app.
+            var isSsgRun = args.HasExitWhenDoneArg();
+
             // Configure the HTTP request pipeline.
-            if (!app.Environment.IsDevelopment())
+            if (!app.Environment.IsDevelopment() && !isSsgRun)
             {
                 app.UseExceptionHandler("/Error");
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
 
-            app.UseHttpsRedirection();
+            // Skip HTTPS redirection during static generation: the generator talks to itself over
+            // plain HTTP, and there's no HTTPS endpoint/dev cert available in CI. GitHub Pages
+            // terminates TLS itself for the published static files.
+            if (!isSsgRun)
+            {
+                app.UseHttpsRedirection();
+            }
 
             app.UseRouting();
 
@@ -44,9 +54,7 @@ namespace Hollowbourn.Web
             app.MapRazorPages()
                .WithStaticAssets();
 
-            // Only generate the static site when explicitly requested (e.g. "dotnet run -- ssg"),
-            // so normal local development (F5 / dotnet run) just serves the Razor Pages app.
-            if (args.HasExitWhenDoneArg())
+            if (isSsgRun)
             {
                 var destinationRoot = Path.Combine(builder.Environment.ContentRootPath, "..", "..", "docs");
                 Directory.CreateDirectory(destinationRoot);
