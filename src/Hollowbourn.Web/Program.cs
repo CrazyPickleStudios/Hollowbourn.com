@@ -20,6 +20,7 @@ namespace Hollowbourn.Web
                         new PageResource("/Pantheon"),
                         new PageResource("/Privacy"),
                         new CssResource("/css/site.css"),
+                        new CssResource("/Hollowbourn.Web.styles.css"),
                         new JsResource("/js/site.js"),
                         new BinResource("/favicon.ico"),
                     }));
@@ -46,13 +47,29 @@ namespace Hollowbourn.Web
                 app.UseHttpsRedirection();
             }
 
+            // GitHub Pages serves this repo from https://crazypicklestudios.github.io/Hollowbourn.com/,
+            // so during static generation, prefix all generated links/asset URLs (asp-* tag helpers,
+            // ~/ paths) with the repo name path base to match that subpath. UsePathBase only strips/sets
+            // PathBase for requests that already start with it, so force it unconditionally here since
+            // the generator's self-requests won't include the prefix.
+            if (isSsgRun)
+            {
+                app.Use((context, next) =>
+                {
+                    context.Request.PathBase = "/Hollowbourn.com";
+                    return next(context);
+                });
+            }
+
             app.UseRouting();
 
             app.UseAuthorization();
 
-            app.MapStaticAssets();
-            app.MapRazorPages()
-               .WithStaticAssets();
+            // Use plain static file serving (not MapStaticAssets' content-fingerprinted URLs),
+            // so the asset paths referenced in rendered HTML (/css/site.css, /js/site.js) match
+            // exactly the plain routes AspNetStatic fetches and writes to the docs/ output.
+            app.UseStaticFiles();
+            app.MapRazorPages();
 
             if (isSsgRun)
             {
