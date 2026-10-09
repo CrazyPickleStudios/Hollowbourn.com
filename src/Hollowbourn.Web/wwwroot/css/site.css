@@ -369,6 +369,43 @@ h1, h2, h3, h4 {
   color: var(--parchment-dark);
 }
 
+/* Legal Content */
+.legal-content {
+  text-align: left;
+}
+
+.legal-updated {
+  text-align: center;
+  font-family: 'IM Fell English SC', serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  color: var(--faded-sepia);
+  margin-bottom: 2.5rem;
+}
+
+.legal-content h2 {
+  font-family: 'Cinzel', serif;
+  font-size: 1.3rem;
+  color: var(--antique-gold);
+  letter-spacing: 0.06em;
+  margin: 2.5rem 0 0.75rem;
+}
+
+.legal-content h2:first-of-type { margin-top: 0; }
+
+.legal-content p {
+  color: var(--parchment-mid);
+  margin-bottom: 1rem;
+}
+
+.legal-content a {
+  color: var(--candlelight);
+  text-decoration: underline;
+  text-decoration-color: rgba(212,165,116,0.4);
+}
+
+.legal-content a:hover { color: var(--antique-gold); }
+
 /* Download Section */
 .download-note {
   font-family: 'IM Fell English SC', serif;

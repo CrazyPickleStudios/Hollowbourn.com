@@ -47,20 +47,6 @@ namespace Hollowbourn.Web
                 app.UseHttpsRedirection();
             }
 
-            // GitHub Pages serves this repo from https://crazypicklestudios.github.io/Hollowbourn.com/,
-            // so during static generation, prefix all generated links/asset URLs (asp-* tag helpers,
-            // ~/ paths) with the repo name path base to match that subpath. UsePathBase only strips/sets
-            // PathBase for requests that already start with it, so force it unconditionally here since
-            // the generator's self-requests won't include the prefix.
-            if (isSsgRun)
-            {
-                app.Use((context, next) =>
-                {
-                    context.Request.PathBase = "/Hollowbourn.com";
-                    return next(context);
-                });
-            }
-
             app.UseRouting();
 
             app.UseAuthorization();
@@ -75,6 +61,14 @@ namespace Hollowbourn.Web
             {
                 var destinationRoot = Path.Combine(builder.Environment.ContentRootPath, "..", "..", "docs");
                 Directory.CreateDirectory(destinationRoot);
+
+                // CNAME has no file extension, so AspNetStatic can't fetch it as a resource over
+                // http; copy it straight from wwwroot so GitHub Pages keeps the custom domain.
+                var cnameSource = Path.Combine(builder.Environment.WebRootPath, "CNAME");
+                if (File.Exists(cnameSource))
+                {
+                    File.Copy(cnameSource, Path.Combine(destinationRoot, "CNAME"), overwrite: true);
+                }
 
                 app.GenerateStaticContent(
                     destinationRoot,
