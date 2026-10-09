@@ -12,6 +12,25 @@
     <link rel="stylesheet" href="~/Hollowbourn.Web.styles.css" />
 </head>
 <body>
+    <svg class="svg-defs" aria-hidden="true" hidden>
+        <defs>
+            <symbol id="divider-ornament" viewBox="0 0 200 30">
+                <line x1="0" y1="15" x2="70" y2="15" stroke="currentColor" stroke-width="1" />
+                <line x1="130" y1="15" x2="200" y2="15" stroke="currentColor" stroke-width="1" />
+                <path d="M75,15 Q85,5 100,5 Q115,5 125,15 Q115,25 100,25 Q85,25 75,15 Z" fill="none" stroke="currentColor" stroke-width="1.2" />
+                <circle cx="100" cy="15" r="3" fill="currentColor" />
+                <line x1="70" y1="12" x2="70" y2="18" stroke="currentColor" stroke-width="1.5" />
+                <line x1="130" y1="12" x2="130" y2="18" stroke="currentColor" stroke-width="1.5" />
+            </symbol>
+            <symbol id="ankh-icon" viewBox="0 0 40 40"></symbol>
+            <symbol id="lightning-icon" viewBox="0 0 40 40"></symbol>
+            <symbol id="skull-icon" viewBox="0 0 40 40"></symbol>
+            <symbol id="crossed-swords-icon" viewBox="0 0 40 40"></symbol>
+            <symbol id="eye-icon" viewBox="0 0 40 40"></symbol>
+            <symbol id="note-icon" viewBox="0 0 40 40"></symbol>
+        </defs>
+    </svg>
+
     <nav class="main-nav" aria-label="Main navigation">
         <div class="nav-inner">
             <a class="nav-logo" asp-area="" asp-page="/Index">
@@ -43,7 +62,7 @@
                 <span class="footer-sep">&bull;</span>
                 <a asp-area="" asp-page="/Privacy">Privacy</a>
             </div>
-            <p class="footer-copy">&copy; 2026 Hollowbourn. All rights reserved.</p>
+            <p class="footer-copy">&copy; 2026 CrazyPickle Studios. All rights reserved.</p>
         </div>
     </footer>
 

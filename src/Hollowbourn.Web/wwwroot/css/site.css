@@ -118,6 +118,13 @@ h1, h2, h3, h4 {
 
 .nav-logo svg { color: var(--royal-gold); }
 
+.svg-defs {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
 .nav-links {
   display: flex;
   list-style: none;
@@ -362,6 +369,11 @@ h1, h2, h3, h4 {
   font-size: 1.05rem;
   color: var(--aged-parchment);
   margin-bottom: 0.5rem;
+}
+
+.feature-icon {
+  color: var(--antique-gold);
+  margin-bottom: 0.9rem;
 }
 
 .feature-card p {
