@@ -15,7 +15,7 @@
             waits for those marked by the Hollow.
         </p>
         <div class="hero-buttons">
-            <a href="#download" class="btn btn-primary">Download</a>
+            <span class="btn btn-primary btn-disabled" aria-disabled="true">Download (Coming Soon)</span>
             <a asp-page="/Pantheon" class="btn btn-secondary">Read the Pantheon</a>
         </div>
     </div>
@@ -34,12 +34,24 @@
             never without a price. Items and hard-won skill can be lost on the way back.
         </p>
         <p>
-            Six gods watch this world, and every school of magic traces back to one of them. There
-            are no fixed classes: a Hollow-touched soul shapes their own path, and every skill they
-            use grows stronger with that use. Three powers (the Crown, the Rival, and the Discord)
-            divide its towns and its loyalties, flavor and backdrop for the world rather than a
-            choice you're forced to make. Groups are welcome wherever you go, never required.
+            Six gods watch this world, and every school of magic traces back to one of them.
+            Three powers (the Crown, the Rival, and the Discord) divide its towns, but their
+            rivalry is backdrop, not a side you have to pick.
         </p>
+        <ul class="town-list">
+            <li class="town-item reveal-up">
+                <h3>No Classes</h3>
+                <p>A Hollow-touched soul shapes their own path, with no single school or role to be locked into.</p>
+            </li>
+            <li class="town-item reveal-up">
+                <h3>Skills Grow With Use</h3>
+                <p>Every skill improves the more you call on it.</p>
+            </li>
+            <li class="town-item reveal-up">
+                <h3>Groups Welcome</h3>
+                <p>Travel with others when you want company, go alone when you don't. Never required.</p>
+            </li>
+        </ul>
         <div class="section-cta">
             <a asp-page="/Pantheon" class="btn btn-secondary">Meet the Pantheon</a>
         </div>
@@ -58,7 +70,7 @@
             </div>
             <div class="feature-card reveal-up">
                 <h3>Grivastel</h3>
-                <p>Home of the Rival. Good iron, better grudges, and little patience for the Crown.</p>
+                <p>Home of the Rival. Built over crypts, held up by the Rival's coin, and slow to forgive the Crown's taxes.</p>
             </div>
             <div class="feature-card reveal-up">
                 <h3>Kelgrim</h3>
@@ -78,8 +90,7 @@
             Check back here when a client is ready to download.
         </p>
         <div class="section-cta">
-            <a href="#" class="btn btn-primary" aria-disabled="true">Download</a>
+            <span class="btn btn-primary btn-disabled" aria-disabled="true">Download (Coming Soon)</span>
         </div>
-        <p class="download-note">No client is available yet. This marks where the download will appear.</p>
     </div>
 </section>

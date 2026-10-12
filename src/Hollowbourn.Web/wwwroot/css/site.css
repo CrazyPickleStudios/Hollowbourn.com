@@ -41,6 +41,13 @@ body {
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   margin: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main[role="main"] {
+  flex: 1 0 auto;
 }
 
 img { max-width: 100%; display: block; }
@@ -301,6 +308,15 @@ h1, h2, h3, h4 {
   transform: translateY(-2px);
 }
 
+.btn-disabled,
+.btn-disabled:hover {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+  transform: none;
+  box-shadow: none;
+}
+
 .btn-secondary {
   background: transparent;
   color: var(--antique-gold);
@@ -331,6 +347,8 @@ h1, h2, h3, h4 {
 
 .section-narrow { max-width: var(--content-narrow); }
 
+.section-inner-spaced { margin-top: 3rem; }
+
 .section-dark {
   background: var(--midnight-brown);
   color: var(--aged-parchment);
@@ -343,12 +361,15 @@ h1, h2, h3, h4 {
 
 .section-cta { margin-top: 2.5rem; }
 
+.section-inner p + p { margin-top: 1.2rem; }
+
 /* Feature / World Cards */
 .feature-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
   text-align: left;
+  margin-top: 2.5rem;
 }
 
 .feature-card {
@@ -371,12 +392,65 @@ h1, h2, h3, h4 {
   margin-bottom: 0.5rem;
 }
 
+.card-discipline {
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--antique-gold);
+  margin-bottom: 0.4rem;
+}
+
 .feature-icon {
   color: var(--antique-gold);
   margin-bottom: 0.9rem;
 }
 
 .feature-card p {
+  font-size: 0.92rem;
+  color: var(--parchment-dark);
+}
+
+.section-footnote {
+  margin-top: 3.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(212,165,116,0.15);
+  font-size: 0.92rem;
+  color: var(--faded-sepia);
+  text-align: center;
+}
+
+.section-footnote a {
+  color: var(--antique-gold);
+  text-decoration: underline;
+}
+
+/* Town List */
+.town-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem 2.5rem;
+  text-align: left;
+  margin-top: 2.5rem;
+  list-style: none;
+}
+
+.town-item {
+  padding: 1.2rem 0;
+  border-top: 1px solid rgba(212,165,116,0.25);
+}
+
+.town-item:last-child {
+  grid-column: 1 / -1;
+  max-width: calc(50% - 1.25rem);
+}
+
+.town-item h3 {
+  font-size: 1.05rem;
+  color: var(--aged-parchment);
+  margin-bottom: 0.5rem;
+}
+
+.town-item p {
   font-size: 0.92rem;
   color: var(--parchment-dark);
 }
@@ -433,6 +507,7 @@ h1, h2, h3, h4 {
   color: var(--parchment-mid);
   padding: 3rem 1.5rem 2rem;
   text-align: center;
+  flex-shrink: 0;
 }
 
 .footer-inner {
@@ -490,6 +565,9 @@ h1, h2, h3, h4 {
 @media (max-width: 700px) {
   :root { --section-pad: 60px; }
   body { font-size: 16px; }
+
+  .town-list { grid-template-columns: 1fr; }
+  .town-item:last-child { max-width: none; }
 
   .nav-links {
     display: none;
